@@ -1,0 +1,131 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      .unzipped-overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffc;
+      }
+
+      .unzipped-overlay__inner {
+        max-width: 500px;
+        margin: 2em auto 0;
+      }
+    </style>
+    <link rel="stylesheet" media="all" href="./../../zz_assets/export.css">
+    <script src="./../../zz_assets/export.js"></script>
+    <title>Basecamp Export</title>
+  </head>
+
+  <body>
+    <main>
+        <header class="position-context centered">
+    <div class="global-back">
+      <a href="./../../-DOUBLE_CLICK_TO_VIEW.html">
+        ‹ <span class="decorated">Home</span>
+</a>    </div>
+
+    <div class="metadata"><small>Exported <time datetime="2022-10-03T06:46:24Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Oct 03, 2022 at  6:46 AM</time></small></div>
+
+      <h3 class="project-name">The Holy Soft Culture API</h3>
+
+
+      <div class="avatar-group avatar-group--small push_half--top">
+        <a href="./../../the-holy-soft-culture-api-15239487/people/index.html">
+          <img src="./../../zz_assets/images/avatars/28351741.png" title="Софт Культура, Administrator at Soft Culture" alt="Софт Культура, Administrator at Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28355144.png" title="Николай Гончаров, Technical Assistant at Soft Culture" alt="Николай Гончаров, Technical Assistant at Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="34" class="avatar">
+
+          
+</a>      </div>
+
+    <nav class="section-nav push_half--ends">
+      <input type="checkbox" id="more" aria-hidden="true" tabindex="-1" class="section-nav__toggle">
+      <div class="section-nav__inner">
+        <ul class="section-nav__list">
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../the-holy-soft-culture-api-15239487/messages/message-board-message_board.html">Message Board</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../the-holy-soft-culture-api-15239487/campfires/campfire-2326858612.html">Campfire</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../the-holy-soft-culture-api-15239487/to-do-lists/to-dos-todoset.html">To-dos</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../the-holy-soft-culture-api-15239487/docs-and-files/docs-files-2326858608.html">Docs &amp; Files</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../the-holy-soft-culture-api-15239487/check-ins/automatic-check-ins-questionnaire.html">Automatic Check-ins</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../the-holy-soft-culture-api-15239487/schedules/schedule-schedule.html">Schedule</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../the-holy-soft-culture-api-15239487/email-forwards/email-forwards-2326858630.html">Email Forwards</a></li>
+        </ul>
+        <div class="section-nav__toggle-label">
+          <label for="more" aria-hidden="true" class="section-nav__link">More</label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<article class="recordable message">
+  <header>
+    <small class="metadata">
+      Posted
+
+      by Николай Гончаров
+
+      · <time datetime="2020-01-27T11:31:45Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Jan 27, 2020 at 11:31 AM</time>
+    </small>
+
+    <h1>
+      Новая логика разбиения скриптов
+      
+    </h1>
+  </header>
+
+  <section>
+    <div class="formatted_content">
+      <div><strong>Старая логика<br></strong><br>На данный момент, логика API (старая логика, неструктурированная) имеет следующую условную структуру:</div><ol><li>app/worker - верхний уровень декларации. Из этих сущностей вызываются методы, представляющие собой какое-либо законченное действие. Различаются они по способо предоставления данных: App - сущность реактивная, ожидающая входящих запросов, а worker - проактивная, запускает свои методы циклично по заданному графику.</li><li>library_ - библиотеки, средний уровень декларации. Эти сущности содержат методы, представляющие собой действия над отдельным модулем/сервисом. Они по цепочке вызываются из app или worker, и спроектированы так, чтобы их можно было вызывать последовательно и с минимальными дополнениями (условиями циклами и т.д.).</li><li>_functions - нижний уровень декларации. Эти сущности содержат методы над сторонними сервисами (Airtable, TalentLMS, SparkPost, Telegram), которые мы интегрируем в свои библиотеки. В основном, здесь "забетонированы" нужным нам образом различные запросы к API этих сервисов, к которым мы обращаемся часто и одинаковым образом.</li></ol><div><br></div><div><strong>Зачем переходить к новой логике&nbsp;<br></strong><br>В новой логике мы хотели бы переосмыслить назначение той или иной сущности. Это нужно для:</div><ol><li>Распутывания топологии взаимодействий между нашими сущностями</li><li>Упрощения проектирования нововведений</li><li>Подготовке к переходу к микросервисной архитектуре</li></ol><div><br></div><div><strong>Новая логика</strong><br><br>Теперь весь функционал API будет структурирован по 4-ым уровням:</div><ol><li>Интерфейсы (бывшие функции) — общаются с внешними сервисами. Интерфейсы — либо классы, либо функции.</li><li>Сервисы (бывшие библиотеки) — методы наших внутренних сервисов. Сервисы разбиты на классы в логике этого сервиса. Каждый класс содержит необходимые методы.</li><li>Службы — цепочки действий в одном или нескольких сервисах. Отлавливание ошибок происходит именно на уровне служб. Служба не может написана без конструкций `try ... except`.</li><li><br>Триггеры — методы запускающие определенные службы (воркеры, app)</li></ol><div><br></div><div><strong>Проблемы с нововведением&nbsp;</strong></div><ul><li>Проблема инкапсуляции. Иерархия не соблюдена. Решение: вынести из некоторых сервисов интерфейсы, а также создать сервисы там, где есть только интерфейсы (например, TalentLMS). Допускать только последовательное взаимодействие между уровнями.</li><li>Проблема взаимодействия между разными сущностями одинакового уровня: не существует некой "middle ground", где сущности могли бы общаться. Поэтому, происходит ад вызовов одних сущностей из тел других и наоборот. Решение: микросервисная архитектура.</li></ul><div></div>
+    </div>
+  </section>
+
+
+  <hr class="divider divider--full-width push--top">
+
+  <h4 class="flush--top">Comments &amp; Events</h4>
+
+  <section id="comments" class="thread thread--comments">
+    <div class="thread__entries">
+          <article data-recording-id="2382943293" data-creator-id="28355144" data-url="/4415886/buckets/15239487/comments/2382943293" data-readable-identifier="Z2lkOi8vYmMzL1JlY29yZGluZy8yMzgyOTQzMjkz" data-parent-id="2364988255" class="thread-entry recording-status-active" id="recording_2382943293"><span class="anchor recordable__anchor" id="__recording_2382943293"></span>
+    <header class="thread-entry__header">
+      <img src="./../../zz_assets/images/avatars/28355144.png" title="Николай Гончаров, Technical Assistant at Soft Culture" alt="Николай Гончаров, Technical Assistant at Soft Culture" width="48" class="avatar thread-entry__avatar">
+
+        <strong class="thread-entry__author">
+          Николай Гончаров<span class="u-hide-on-phone">,</span>
+          <span class="thread-entry__author-title person-title txt--normal">Technical Assistant</span>
+        </strong>
+
+    </header>
+
+    <div class="formatted_content">
+      <div>1. XML_functions должны стать сервисом.<br>2. Связь server_functions и clients_functions. Последняя сделана сервисом, однако теперь этот сервис импортируют другие сервисы.&nbsp;<br>3. server_functions импортятся в CTP update.&nbsp;<br>4. airtable_functions импортится в кучу tutors и courses. Решение: вынести в сервис update_dataframe.&nbsp;<br>5. airtable_functions импортируется в app. Неясно, зачем.<br>6. Сделать notifications частью library_support?<br>7. Вынести из talent_functions сервис?&nbsp;</div>
+    </div>
+
+
+    <div class="thread-entry__metadata metadata">
+      <small>
+        <span class="thread-entry__metadata__time">
+          <time datetime="2020-02-03T11:12:27Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Feb 03, 2020 at 11:12 AM</time>
+        </span>
+
+
+          <span class="thread-entry__metadata__recipients">
+              Notified 1 person
+          </span>
+      </small>
+    </div>
+</article>
+
+    </div>
+  </section>
+
+</article>
+
+    </main>
+  
+
+</body></html>

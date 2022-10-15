@@ -1,0 +1,128 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      .unzipped-overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffc;
+      }
+
+      .unzipped-overlay__inner {
+        max-width: 500px;
+        margin: 2em auto 0;
+      }
+    </style>
+    <link rel="stylesheet" media="all" href="./../../zz_assets/export.css">
+    <script src="./../../zz_assets/export.js"></script>
+    <title>Basecamp Export</title>
+  </head>
+
+  <body>
+    <main>
+        <header class="position-context centered">
+    <div class="global-back">
+      <a href="./../../-DOUBLE_CLICK_TO_VIEW.html">
+        ‹ <span class="decorated">Home</span>
+</a>    </div>
+
+    <div class="metadata"><small>Exported <time datetime="2022-10-03T06:45:50Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Oct 03, 2022 at  6:45 AM</time></small></div>
+
+      <h3 class="project-name">🧢 Техническая команда</h3>
+
+
+      <div class="avatar-group avatar-group--small push_half--top">
+        <a href="./../../-15239380/people/index.html">
+          <img src="./../../zz_assets/images/avatars/28351741.png" title="Софт Культура, Administrator at Soft Culture" alt="Софт Культура, Administrator at Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28355144.png" title="Николай Гончаров, Technical Assistant at Soft Culture" alt="Николай Гончаров, Technical Assistant at Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28670252.png" title="Сеня Волков, Soft Culture" alt="Сеня Волков, Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="34" class="avatar">
+
+          
+</a>      </div>
+
+    <nav class="section-nav push_half--ends">
+      <input type="checkbox" id="more" aria-hidden="true" tabindex="-1" class="section-nav__toggle">
+      <div class="section-nav__inner">
+        <ul class="section-nav__list">
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/messages/message-board-message_board.html">Message Board</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/campfires/campfire-2326842951.html">Campfire</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/to-do-lists/to-dos-todoset.html">To-dos</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/docs-and-files/docs-files-2326842949.html">Docs &amp; Files</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/check-ins/automatic-check-ins-questionnaire.html">Automatic Check-ins</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/schedules/schedule-schedule.html">Schedule</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/email-forwards/email-forwards-2326842960.html">Email Forwards</a></li>
+        </ul>
+        <div class="section-nav__toggle-label">
+          <label for="more" aria-hidden="true" class="section-nav__link">More</label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<article class="recordable message">
+  <header>
+    <small class="metadata">
+      Summary
+
+      by Арсений Афонин
+
+      · <time datetime="2021-04-05T12:32:33Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Apr 05, 2021 at 12:32 PM</time>
+    </small>
+
+    <h1>
+      👌 Видеоархив 2.0. Итоги
+      
+    </h1>
+  </header>
+
+  <section>
+    <div class="formatted_content">
+      <div>Проект состоит из следующих разделов или этапов:</div><ul><li>Новый видеоплеер для архива (<a href="https://github.com/softculture/video-player" target="_blank" rel="noreferrer">video-player</a> и API)</li><li>Хранилище на Selectel</li><li>Сервер конвертации</li><li>Roadmap</li></ul><div><br></div><h1>Новый видеоплеер для архива</h1><div>Техническая команда разработала новый видеоплеер, который заточен под стриминг видео в формате HLS с AES-шифрованием. Новый плеер поддерживает переключение качества и перемотку, но не поддерживает Theater mode и главы, потому что готовых и качественных плагинов на video.js для такого функционала не было.<br><br>На данный момент плеер выпущен в продакшн в HLS и HTML5-версиях. После последних правок плеер проработал неделю на сотнях студентов и пока ни одного бага не прилетало, так что мы считаем текущий релиз стабильным.<br><br>Для плеера разработаны соответствующие методы в API Софт Культуры. Старые методы API удалены, а вместе с ними удалены или отключены неиспользуемые бакеты и Cloudfront Distributions на S3 и Selectel.<br><br>Для тестирования плеера был сделан временный домен: <a href="https://video2.softculture.cc" target="_blank" rel="noreferrer">video2.softculture.cc</a>.<br><br>Также видеоплеер переведен на SSL, это отразилось в Airtable и в коде .htaccess.<br><br></div><h1>Хранилище на Selectel</h1><div>Для уменьшения скорости отдачи видео и уменьшения расходов на CDN мы решили перенести хранилище финальных видео в HLS на российские сервера Selectel.<br><br>CDN на Selectel настроена, сейчас на нее уже безостановочно и автоматически загружаются все новые видеозаписи.<br><br>Архив видеозаписей Софт Культуры частично перенесен на Selectel. Перенос всего видеоархива на Selectel займет около месяца. Эта работа будет делаться вне проекта.<br><br>Для переноса мы написали внутреннюю <a href="https://github.com/softculture/dev-tools/tree/master/transcoder-task-creator" target="_blank" rel="noreferrer">утилиту</a>.<br><br>Также на серверах Selectel мы решили хранить и статичные файлы видеоплеера, чтобы уменьшить нагрузку на сервера Sweb и ускорить загрузку плеера.<br><br></div><h1>Сервер конвертации</h1><div>Конвертация видеозаписей средствами Amazon Elastic Transcoder оказалась совершенно невыгодной с финансовой точки зрения, поэтому мы настроили и подняли собственный сервер конвертации — «транскодер», который пока что работает только с финальными видео в H264.<br><br>Сервер уже выпущен в продакшн, его ресурс увеличен до 6 ядер при 2 Гб RAM, этого должно хватить. На данный момент мы остановились на создании только одного качества для видео и отгрузке его на Selectel за ~15 минут. Мы разделили конвертацию и отгрузку на два отдельных независимых процесса, чтобы можно было параллельно вести и конвертацию и отгрузку.<br><br>Сейчас транскодер доработан до стабильной версии. Его код и документацию можно посмотреть вот <a href="https://github.com/softculture/video-transcoder" target="_blank" rel="noreferrer">здесь</a>.</div><div><br></div><h1>Roadmap</h1><ul><li><strong>Перенос клиентских баз на Селектел<br></strong>Сейчас клиентские базы отгружаются и скачиваются с серверов Amazon из Германии. Намного быстрее будет хранить их на Селектеле. Для этого надо будет перенастроить aws-cli, точнее добавить в него новый профиль.</li><li><strong>Бриф на реализацию полной конвертации на сервере</strong><span style="background-color: rgb(250, 247, 133);"><br></span>В целом можно отгружать видео с конвертацией непосредственно на сервере, минуя конвертацию на компьютере куратора. Для этого надо будет переписывать video-app, чтобы отгрузка шла не в папку video, а в папку temp, а вместо конвертации формировалось бы задание на конвертацию в API. На сервере для этого нужен будет видимо отдельный процесс, или же усовершенсвованная версия текущего процесса. Каким-то образом надо будет глушить лямбду, если конвертация в HLS будет происходить из исходного файла.</li><li><strong>Бриф на удаление видео с Селектела при удалении с S3</strong><br>При удалении видео с S3, соответствующие видео не удаляются с Селектела и мы платим за них деньги. Видимо надо писать отдельный процесс и лямбду для этого.</li></ul>
+    </div>
+  </section>
+
+
+  <hr class="divider divider--full-width push--top">
+
+  <h4 class="flush--top">Comments &amp; Events</h4>
+
+  <section id="comments" class="thread thread--comments">
+    <div class="thread__entries">
+          <article data-recording-id="4060236621" data-creator-id="28724514" data-url="/4415886/buckets/15239380/comments/4060236621" data-readable-identifier="Z2lkOi8vYmMzL1JlY29yZGluZy80MDYwMjM2NjIx" data-parent-id="3634066320" class="thread-entry recording-status-active" id="recording_4060236621"><span class="anchor recordable__anchor" id="__recording_4060236621"></span>
+    <header class="thread-entry__header">
+      <img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="48" class="avatar thread-entry__avatar">
+
+        <strong class="thread-entry__author">Арсений Афонин</strong>
+
+    </header>
+
+    <div class="formatted_content">
+      <div>Проект закончен. Roadmap написан.</div>
+    </div>
+
+
+    <div class="thread-entry__metadata metadata">
+      <small>
+        <span class="thread-entry__metadata__time">
+          <time datetime="2021-08-17T16:25:44Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Aug 17, 2021 at  4:25 PM</time>
+        </span>
+
+
+          <span class="thread-entry__metadata__recipients">
+              Notified 3 people
+          </span>
+      </small>
+    </div>
+</article>
+
+    </div>
+  </section>
+
+</article>
+
+    </main>
+  
+
+</body></html>

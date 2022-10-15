@@ -1,0 +1,95 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      .unzipped-overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffc;
+      }
+
+      .unzipped-overlay__inner {
+        max-width: 500px;
+        margin: 2em auto 0;
+      }
+    </style>
+    <link rel="stylesheet" media="all" href="./../../zz_assets/export.css">
+    <script src="./../../zz_assets/export.js"></script>
+    <title>Basecamp Export</title>
+  </head>
+
+  <body>
+    <main>
+        <header class="position-context centered">
+    <div class="global-back">
+      <a href="./../../-DOUBLE_CLICK_TO_VIEW.html">
+        ‹ <span class="decorated">Home</span>
+</a>    </div>
+
+    <div class="metadata"><small>Exported <time datetime="2022-10-03T06:45:27Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Oct 03, 2022 at  6:45 AM</time></small></div>
+
+      <h3 class="project-name">Отчетность 3.2</h3>
+
+
+      <div class="avatar-group avatar-group--small push_half--top">
+        <a href="./../../3-2-19734324/people/index.html">
+          <img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/29793096.png" title="Inna Pyhova, Soft Culture" alt="Inna Pyhova, Soft Culture" width="34" class="avatar">
+
+          
+</a>      </div>
+
+    <nav class="section-nav push_half--ends">
+      <input type="checkbox" id="more" aria-hidden="true" tabindex="-1" class="section-nav__toggle">
+      <div class="section-nav__inner">
+        <ul class="section-nav__list">
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/messages/message-board-message_board.html">Message Board</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/campfires/campfire-3230170059.html">Campfire</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/to-do-lists/to-dos-todoset.html">To-dos</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/docs-and-files/docs-files-3230170058.html">Docs &amp; Files</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/check-ins/automatic-check-ins-questionnaire.html">Automatic Check-ins</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/schedules/schedule-schedule.html">Schedule</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/email-forwards/email-forwards-3230170078.html">Email Forwards</a></li>
+        </ul>
+        <div class="section-nav__toggle-label">
+          <label for="more" aria-hidden="true" class="section-nav__link">More</label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<article class="recordable message">
+  <header>
+    <small class="metadata">
+      Note
+
+      by Арсений Афонин
+
+      · <time datetime="2020-11-20T13:45:09Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Nov 20, 2020 at  1:45 PM</time>
+    </small>
+
+    <h1>
+      ✨ Анализ сервиса Seeneco
+      
+    </h1>
+  </header>
+
+  <section>
+    <div class="formatted_content">
+      <h1>Общая структура</h1><div>Каждая операция (неважно поступление или списание) в сервисе имеет следующие атрибуты:</div><ul><li>счет</li><li>сумма</li><li>фактическая дата</li><li>назначение</li><li>получатель</li><li>дата признания расхода/дохода</li><li>статья</li><li>проект</li><li>ответственный сотрудник</li></ul><div>Каждая статья относится к одному из трех денежных потоков:</div><ul><li>операционный</li><li>финансовый</li><li>инвестиционный</li></ul><div>Таким образом, деления на направления бизнеса как будто нельзя сделать. Теоретически это можно имитировать делением на проекты, однако проекты не имеют вложенности, это плоский список, так что в проект можно записывать либо только конкретный курс, либо тип курса в целом.<br><br>На одну операцию нельзя привязать несколько проектов, равно как и несколько статей. Это кажется логичным ограничением системы, однако мы решили допускать привязывание нескольких проектов и автоматическое деление операции между ними.<br><br>Объединять операции нельзя, группировать тоже. Поскольку операция — это каждая транзакция, то объединить все выплаты в рамках одного периода одному человеку в одну операцию.<br><br>Однако можно разделять операции на несколько, так чтобы можно было присвоить части операции разным проектам.<br><br>Порадовала возможность создания правил автоматического присвоения проекта или операции по назначению платежа.<br><br></div><h1>Отчеты</h1><div>Никакого деления, помимо деления на типы деятельности и статьи/подстатьи в отчетах нет. Таким образом, в этом сервисе нереально реализовать деление по типам расходов/доходов, которое мы пытаемся реализовать в новой версии отчетности (общепроизводственные, коммерческие и т. д.). Как видно из примера справочника статей — эти категории в каком-то виде просто реализованы на уровне верхнеуровневых статей.</div><div><br></div><h1>Демонастрационный справочник статей</h1><ul><li>Административные расходы<ul><li>Аренда офиса</li><li>Аренда склада</li><li>Аренда торговой площади</li><li>Бензин</li><li>Коммунальные платежи</li><li>Хозяйственные расходы</li></ul></li><li>Выплаты по финансовой деятельности<ul><li>Возврат займа</li><li>Выдача займов</li><li>Лизинг</li><li>Перевод на депозит</li><li>Проценты по займу</li></ul></li><li>Выплаты учредителям и акционерам<ul><li>Взнос в капитал</li><li>Выплата дивидендов</li></ul></li><li>Инвестиционные расходы<ul><li>Покупка ОС</li><li>Расходы на ОС</li><li>Расходы на фирменный стиль</li></ul></li><li>ИТ и Связь<ul><li>Услуги связи</li></ul></li><li>Маркетинг<ul><li>Маркетинговые услуги</li><li>Реклама</li><li>Услуги по привлечению</li></ul></li><li>Налоги<ul><li>Налог на прибыль</li><li>Налог по УСН</li><li>Транспортный налог</li></ul></li><li>Персонал<ul><li>Оплата труда</li></ul></li><li>Премия<ul><li>Разовая премия</li></ul></li><li>Расходы по основной деятельности<ul><li>Курьерские услуги</li><li>Оплата за товар поставщику</li><li>Услуги подрядчиков. Авиа</li><li>Услуги подрядчиков. Автоперевозки</li><li>Услуги подрядчиков. Ж/д перевозки</li></ul></li><li>Управленческие расходы<ul><li>Банковское обслуживание</li><li>Бухгалтерские услуги</li><li>Плата за операции с наличными</li><li>Юридические услуги</li></ul></li></ul><div></div>
+    </div>
+  </section>
+
+
+  <hr class="divider divider--full-width push--top">
+
+
+</article>
+
+    </main>
+  
+
+</body></html>

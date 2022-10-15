@@ -1,0 +1,355 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      .unzipped-overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffc;
+      }
+
+      .unzipped-overlay__inner {
+        max-width: 500px;
+        margin: 2em auto 0;
+      }
+    </style>
+    <link rel="stylesheet" media="all" href="./../../zz_assets/export.css">
+    <script src="./../../zz_assets/export.js"></script>
+    <title>Basecamp Export</title>
+  </head>
+
+  <body>
+    <main>
+        <header class="position-context centered">
+    <div class="global-back">
+      <a href="./../../-DOUBLE_CLICK_TO_VIEW.html">
+        ‹ <span class="decorated">Home</span>
+</a>    </div>
+
+    <div class="metadata"><small>Exported <time datetime="2022-10-03T06:45:48Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Oct 03, 2022 at  6:45 AM</time></small></div>
+
+      <h3 class="project-name">🤷‍♀️ Дизайн-команда</h3>
+
+
+      <div class="avatar-group avatar-group--small push_half--top">
+        <a href="./../../-15322366/people/index.html">
+          <img src="./../../zz_assets/images/avatars/28351741.png" title="Софт Культура, Administrator at Soft Culture" alt="Софт Культура, Administrator at Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="34" class="avatar">
+
+          
+</a>      </div>
+
+    <nav class="section-nav push_half--ends">
+      <input type="checkbox" id="more" aria-hidden="true" tabindex="-1" class="section-nav__toggle">
+      <div class="section-nav__inner">
+        <ul class="section-nav__list">
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15322366/messages/message-board-message_board.html">Message Board</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15322366/campfires/campfire-2340399167.html">Campfire</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15322366/to-do-lists/to-dos-todoset.html">To-dos</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15322366/docs-and-files/docs-files-2340399166.html">Docs &amp; Files</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15322366/check-ins/automatic-check-ins-questionnaire.html">Automatic Check-ins</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15322366/schedules/schedule-schedule.html">Schedule</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15322366/email-forwards/email-forwards-2340399179.html">Email Forwards</a></li>
+        </ul>
+        <div class="section-nav__toggle-label">
+          <label for="more" aria-hidden="true" class="section-nav__link">More</label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<article class="recordable message">
+  <header>
+    <small class="metadata">
+      Brief
+
+      by Софт Культура
+
+      · <time datetime="2020-01-16T13:21:34Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Jan 16, 2020 at  1:21 PM</time>
+    </small>
+
+    <h1>
+      👀 Новая страница курсов
+      
+    </h1>
+  </header>
+
+  <section>
+    <div class="formatted_content">
+      <div>В ближайшее время мы хотим сделать легкий редизайн сайта. На данный момент мы хотим реализовать его в несколько последовательных этапов.</div><ol><li>Мелкий редизайн стилей текста, легкое освежение</li><li>Редизайн меню «Подробнее» на странице курса (с макетами)</li><li>Создание новой навигации по странице курса (с макетами)</li><li>Обновление мобильных и планшетных версий</li></ol><div>Пока мы хотим начать с первого этапа.<br><br></div><h1>Правки к этапу 1</h1><div>1. Перенести media query после стиля <em>.block .btit</em>, иначе он перетирают <em>left</em>:</div><pre>@media only screen and (min-width: 1130px) {
+    h1, .descript {
+        padding-left: 48px; /* не касается блога */
+    }
+    .block .btit {
+    	left: 76px; 
+    }
+}</pre><div><br>2. Удалить нижнее подчеркивание у <em>a::after</em> в принципе:</div><pre>/* Здесь был a::after первым, он удален */
+.link::after,
+.fklink::after,
+.block.txt a::after {
+    display: block;
+    content: " ";
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    border-bottom: 1px solid;
+}
+
+/* Здесь тоже был a::after, он удален, код объединен с .block.txt a::after */
+.link::after, .block a::after, .block.txt a::after {
+    border-bottom: 2px solid black;
+}
+
+/* Вот эти куски кода можно вообще удалить */
+/*.courses-item a::after, .recomend a::after {
+    border-bottom: none; 
+}*/</pre><div><br></div><h1>Этап 1. Легкое освежение страницы</h1><div>Мы хотим начать с освежения некоторых элементов страниц, чтобы унифицировать дизайн-систему. Для этого мы не стали разрабатывать заново макеты, а решили просто протестировать изменения сразу на CSS. Наш код может быть не до конца грамотным, к нему стоит относиться как к способу передачи ТЗ.<br><br>Вот список правок, который мы хотели бы внести в CSS, с учетом логики текущего кода сайта. Мы тестировали код на всех версиях сайта, изменения специфичные только для десктопной (двухчастной) версии мы выделили с media query.<br><br>Поскольку в мобильных версиях сейчас итак довольно много проблем со унификацией стилей элементов, мы переработаем ее аккуратно позднее, после реализации основных глобальных изменений.&nbsp;<br><br></div><div><strong>Правый блок на странице курса и кнопки</strong>:</div><ol><li>Выровнять стили и отступы текста в правом блоке, а также в кнопках того же стиля на других страницах</li><li>Удалить значок формата в правом блоке</li></ol><pre>/* Основные параметры */
+:root {
+    --font-size-small: 17px;
+    --font-size-large: 25px;
+    --line-height-large: 30px;
+}
+
+/* Страница одного курса */
+/* Кнопки и подписи в боковом меню */
+.ppsect {
+    text-transform: lowercase;
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-large);
+}
+
+/* Разделы */
+.pptit {
+    font-size: var(--font-size-small);
+    padding-top: 4px; /* Отступ между разделами */
+}
+
+/* «Подробнее» */
+.ppsect span.imore {
+    font-size: var(--font-size-small);
+    top: 0;
+}
+
+/* Иконка у формата */
+.ppsect.format .icon {
+    display: none; /* Просто удалить из HTML, без CSS */
+}
+
+/* Главная */
+/* Кнопка в тексте, такой же стиль как .ppsect */
+.txtbut {
+    text-transform: lowercase;
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-large);
+}
+
+/* Страница курсов */
+/* Меню на странице курсов */
+.courses-categories li span {
+    text-transform: lowercase;
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-large);
+}</pre><div><br><strong>Основной блок и другие страницы</strong></div><ol><li>Изменить стиль вертикальных подписей разделов</li><li>В десктопной верстке изменить положение и стиль заголовка и подписей разделов</li><li>В десктопной верстке добавить ограничение на ширину текста</li><li>Унифицировать большинство подчеркиваний у ссылок</li><li>Удалить некоторые элементы из верстки (те, что <em>display: none</em>)</li></ol><pre>/* Основные параметры */
+:root {
+    --font-size-large: 25px;
+    --line-height-large: 30px;
+    --font-size-xlarge: 29px;
+    --line-height-xlarge: 33px;
+    --link-border-large: 2px;
+}
+
+/* Страница одного курса */
+/* Заголовок страницы */
+h1 .icon {
+    display: none;
+}
+
+.descript {
+    /* на маленьких разрешениях будет переписан mobile.css */
+    font-size: 36px;
+    line-height: 40px;
+}
+
+/* Заголовки разделов */
+.block .btit {
+    font-size: var(--font-size-large);
+    padding-bottom: 5px;
+    border-bottom: none;
+}
+
+/* media query для тестирования только на десктопной верстке */
+@media only screen and (min-width: 1130px) {
+    h1, .descript {
+        padding-left: 48px; /* не касается блога */
+    }
+    .block .btit {
+    	left: 76px; 
+    }
+}
+
+/* Программа по дням */
+.parag .txt, .num {
+    font-size: var(--font-size-xlarge);
+    line-height: var(--line-height-xlarge);
+    padding-bottom: 0.4em;
+}
+
+.parag {
+    padding-bottom: 0.8em;
+}
+
+/* Текст */
+section.block {
+    max-width: 45vw;
+}
+
+/* Главная страница */
+/* Подписи */
+.mainpage .fklink {
+    font-size: var(--font-size-large);
+}
+
+/* Подчеркивания */
+/* Страница курсов */
+.courses-categories li span {
+    margin-left: 10%;
+    margin-right: 5%;
+    padding-left: 0;
+    padding-right: 0;
+    /* swap margin and padding in order border-bottom to work */
+}
+    
+.courses-categories li.active span {
+    text-decoration: none;
+    border-bottom: var(--link-border-large) solid black;
+}
+
+.courses-item-date:after {
+    display: none;
+}
+
+/* Любая страница */
+.courses-item a::after, .recomend a::after {
+    border-bottom: none; /* удалить подчеркивание ячеек курсов */
+}
+
+a::after, .link::after, .block a::after {
+    border-bottom: var(--link-border-large) solid black;
+}
+
+.block.txt a::after {
+    border-bottom: var(--link-border-large) solid black;
+}
+
+/* Главная страница */
+.fklink::after {
+    border-bottom: none; /* удалить подчеркивание у подписей */
+}</pre><div>&nbsp;</div><h1>Примеры</h1><div>Поскольку мы не делали макетов для этих изменений, а тестировали сразу на CSS, то дизайн показан только на скриншотах окна браузера.<br><br><bc-attachment sgid="BAh7CEkiCGdpZAY6BkVUSSIuZ2lkOi8vYmMzL0F0dGFjaG1lbnQvMTgwMTg5NjA3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--90dc4d28030b876044dd08bb46886c207ed67ce0" content-type="image/png" url="https://preview.3.basecamp.com/4415886/blobs/2b8277ac-736f-11ea-800a-ecf4bbd6f9d0/previews/full" href="https://storage.3.basecamp.com/4415886/blobs/2b8277ac-736f-11ea-800a-ecf4bbd6f9d0/download/Screenshot%202020-03-31%20at%2019.35.27.png" filename="Screenshot 2020-03-31 at 19.35.27.png" filesize="1369066" width="1552" height="989" previewable="true" presentation="gallery" caption="На главной изменились вертикальные подписи и ссылка на курсы"><div class="attachment attachment--image attachment--png attachment--preview attachment--exported">
+    <a class="attachment__link unstyled" target="_blank" href="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200099148-screenshot-2020-03-31-at-19-35-27.png">
+      <div class="attachment--frame">
+        <img src="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200099148-screenshot-2020-03-31-at-19-35-27.png">
+      </div>
+</a>
+  <span class="attachment__details">
+    <div class="attachment__caption">
+      <a class="unstyled attachment__link" target="_blank" href="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200099148-screenshot-2020-03-31-at-19-35-27.png">
+
+          <span class="attachment__name">
+            На главной изменились вертикальные подписи и ссылка на курсы • <span class="decorated">Download</span>
+          </span>
+</a>    </div>
+  </span>
+</div></bc-attachment><br><bc-attachment sgid="BAh7CEkiCGdpZAY6BkVUSSIuZ2lkOi8vYmMzL0F0dGFjaG1lbnQvMTgwMTg5NzY0P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--3a8207d7952d3c022a2f1e672a31c0f34f8cc473" content-type="image/png" url="https://preview.3.basecamp.com/4415886/blobs/402e78d6-736f-11ea-ab6e-a0369f740da9/previews/full" href="https://storage.3.basecamp.com/4415886/blobs/402e78d6-736f-11ea-ab6e-a0369f740da9/download/Screenshot%202020-03-31%20at%2019.35.36.png" filename="Screenshot 2020-03-31 at 19.35.36.png" filesize="334832" width="1552" height="989" previewable="true" presentation="gallery" caption="На странице курсов изменились кнопки в меню фильтрации по направлениям (всем, архитекторам, дизайнерам) и ушли подчеркивания у дат."><div class="attachment attachment--image attachment--png attachment--preview attachment--exported">
+    <a class="attachment__link unstyled" target="_blank" href="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200099305-screenshot-2020-03-31-at-19-35-36.png">
+      <div class="attachment--frame">
+        <img src="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200099305-screenshot-2020-03-31-at-19-35-36.png">
+      </div>
+</a>
+  <span class="attachment__details">
+    <div class="attachment__caption">
+      <a class="unstyled attachment__link" target="_blank" href="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200099305-screenshot-2020-03-31-at-19-35-36.png">
+
+          <span class="attachment__name">
+            На странице курсов изменились кнопки в меню фильтрации по направлениям (всем, архитекторам, дизайнерам) и ушли подчеркивания у дат. • <span class="decorated">Download</span>
+          </span>
+</a>    </div>
+  </span>
+</div></bc-attachment><br><bc-attachment sgid="BAh7CEkiCGdpZAY6BkVUSSIuZ2lkOi8vYmMzL0F0dGFjaG1lbnQvMTgwMTkwMTIxP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--49ae825248d4c0566e7d2edd7d650cd07639da94" content-type="image/png" url="https://preview.3.basecamp.com/4415886/blobs/6a92af2a-736f-11ea-844b-a0369f740db7/previews/full" href="https://storage.3.basecamp.com/4415886/blobs/6a92af2a-736f-11ea-844b-a0369f740db7/download/Screenshot%202020-03-31%20at%2019.35.50.png" filename="Screenshot 2020-03-31 at 19.35.50.png" filesize="595696" width="1552" height="989" previewable="true" presentation="gallery" caption="На странице курса изменилось положение заголовка и вертикальных подписей в десктопной (двухчастной) версии сайта, а также правый блок и кнопки во всех версиях сайта."><div class="attachment attachment--image attachment--png attachment--preview attachment--exported">
+    <a class="attachment__link unstyled" target="_blank" href="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200099662-screenshot-2020-03-31-at-19-35-50.png">
+      <div class="attachment--frame">
+        <img src="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200099662-screenshot-2020-03-31-at-19-35-50.png">
+      </div>
+</a>
+  <span class="attachment__details">
+    <div class="attachment__caption">
+      <a class="unstyled attachment__link" target="_blank" href="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200099662-screenshot-2020-03-31-at-19-35-50.png">
+
+          <span class="attachment__name">
+            На странице курса изменилось положение заголовка и вертикальных подписей в десктопной (двухчастной) версии сайта, а также правый блок и кнопки во всех версиях сайта. • <span class="decorated">Download</span>
+          </span>
+</a>    </div>
+  </span>
+</div></bc-attachment><br><bc-attachment sgid="BAh7CEkiCGdpZAY6BkVUSSIuZ2lkOi8vYmMzL0F0dGFjaG1lbnQvMTgwMTkwNDYwP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--efbb25bac4b26fcbd6f3ff2c67922932fbe1057e" content-type="image/png" url="https://preview.3.basecamp.com/4415886/blobs/9102faac-736f-11ea-84db-ecf4bbd6f9a0/previews/full" href="https://storage.3.basecamp.com/4415886/blobs/9102faac-736f-11ea-84db-ecf4bbd6f9a0/download/Screenshot%202020-03-31%20at%2019.35.59.png" filename="Screenshot 2020-03-31 at 19.35.59.png" filesize="649491" width="1552" height="989" previewable="true" presentation="gallery" caption="Также изменились ширина блока текста, шрифт в списке и подчеркивания у ссылок"><div class="attachment attachment--image attachment--png attachment--preview attachment--exported">
+    <a class="attachment__link unstyled" target="_blank" href="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200100001-screenshot-2020-03-31-at-19-35-59.png">
+      <div class="attachment--frame">
+        <img src="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200100001-screenshot-2020-03-31-at-19-35-59.png">
+      </div>
+</a>
+  <span class="attachment__details">
+    <div class="attachment__caption">
+      <a class="unstyled attachment__link" target="_blank" href="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200100001-screenshot-2020-03-31-at-19-35-59.png">
+
+          <span class="attachment__name">
+            Также изменились ширина блока текста, шрифт в списке и подчеркивания у ссылок • <span class="decorated">Download</span>
+          </span>
+</a>    </div>
+  </span>
+</div></bc-attachment><br><bc-attachment sgid="BAh7CEkiCGdpZAY6BkVUSSIuZ2lkOi8vYmMzL0F0dGFjaG1lbnQvMTgwMTkwNjkzP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--4818dae50d37bbe0fbc0da070b70cd0af64dca18" content-type="image/png" url="https://preview.3.basecamp.com/4415886/blobs/aa0879d2-736f-11ea-b488-ecf4bbd72a88/previews/full" href="https://storage.3.basecamp.com/4415886/blobs/aa0879d2-736f-11ea-b488-ecf4bbd72a88/download/Screenshot%202020-03-31%20at%2019.36.08.png" filename="Screenshot 2020-03-31 at 19.36.08.png" filesize="393926" width="1552" height="989" previewable="true" presentation="gallery" caption="Здесь изменились только подчеркивания у ссылок."><div class="attachment attachment--image attachment--png attachment--preview attachment--exported">
+    <a class="attachment__link unstyled" target="_blank" href="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200100234-screenshot-2020-03-31-at-19-36-08.png">
+      <div class="attachment--frame">
+        <img src="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200100234-screenshot-2020-03-31-at-19-36-08.png">
+      </div>
+</a>
+  <span class="attachment__details">
+    <div class="attachment__caption">
+      <a class="unstyled attachment__link" target="_blank" href="./../../-15322366/all-files-images-pdfs-spreadsheets-etc/200100234-screenshot-2020-03-31-at-19-36-08.png">
+
+          <span class="attachment__name">
+            Здесь изменились только подчеркивания у ссылок. • <span class="decorated">Download</span>
+          </span>
+</a>    </div>
+  </span>
+</div></bc-attachment></div>
+    </div>
+  </section>
+
+
+  <hr class="divider divider--full-width push--top">
+
+  <h4 class="flush--top">Comments &amp; Events</h4>
+
+  <section id="comments" class="thread thread--comments">
+    <div class="thread__entries">
+        <article class="thread-entry thread-entry--event">
+  <img src="./../../zz_assets/images/link.svg" width="17" class="thread-entry__icon">
+  <span class="thread-entry__event">
+    Арсений Афонин <strong>turned on</strong> public link sharing for this message
+    on <time datetime="2020-03-31T16:58:21Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Mar 31, 2020 at  4:58 PM</time>
+  </span>
+</article>
+
+
+    </div>
+  </section>
+
+</article>
+
+    </main>
+  
+
+</body></html>

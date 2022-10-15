@@ -1,0 +1,98 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      .unzipped-overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffc;
+      }
+
+      .unzipped-overlay__inner {
+        max-width: 500px;
+        margin: 2em auto 0;
+      }
+    </style>
+    <link rel="stylesheet" media="all" href="./../../zz_assets/export.css">
+    <script src="./../../zz_assets/export.js"></script>
+    <title>Basecamp Export</title>
+  </head>
+
+  <body>
+    <main>
+        <header class="position-context centered">
+    <div class="global-back">
+      <a href="./../../-DOUBLE_CLICK_TO_VIEW.html">
+        ‹ <span class="decorated">Home</span>
+</a>    </div>
+
+    <div class="metadata"><small>Exported <time datetime="2022-10-03T06:46:31Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Oct 03, 2022 at  6:46 AM</time></small></div>
+
+      <h3 class="project-name">Обновление видеокурса GIS</h3>
+
+
+      <div class="avatar-group avatar-group--small push_half--top">
+        <a href="./../../gis-17012263/people/index.html">
+          <img src="./../../zz_assets/images/avatars/28724392.png" title="Олег Сазонов, Soft Culture" alt="Олег Сазонов, Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="34" class="avatar">
+
+          
+</a>      </div>
+
+    <nav class="section-nav push_half--ends">
+      <input type="checkbox" id="more" aria-hidden="true" tabindex="-1" class="section-nav__toggle">
+      <div class="section-nav__inner">
+        <ul class="section-nav__list">
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../gis-17012263/messages/message-board-message_board.html">Message Board</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../gis-17012263/campfires/campfire-2649662949.html">Campfire</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../gis-17012263/to-do-lists/to-dos-todoset.html">To-dos</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../gis-17012263/docs-and-files/docs-files-2649662948.html">Docs &amp; Files</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../gis-17012263/check-ins/automatic-check-ins-questionnaire.html">Automatic Check-ins</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../gis-17012263/schedules/schedule-schedule.html">Schedule</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../gis-17012263/email-forwards/email-forwards-2649662960.html">Email Forwards</a></li>
+        </ul>
+        <div class="section-nav__toggle-label">
+          <label for="more" aria-hidden="true" class="section-nav__link">More</label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<article class="recordable message">
+  <header>
+    <small class="metadata">
+      Brief
+
+      by Олег Сазонов
+
+      · <time datetime="2020-05-19T04:49:47Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">May 19, 2020 at  4:49 AM</time>
+    </small>
+
+    <h1>
+      👀 Обновление видеокурса GIS
+      
+    </h1>
+  </header>
+
+  <section>
+    <div class="formatted_content">
+      <h1>Проблемы для переработки</h1><ul><li>нет обьяснения базовых принципов работы в программе</li><li>&nbsp;нет понимания откуда брать базовые данные для проектов не в МСК</li><li>&nbsp;нет понимания откуда взялись данные для курса</li><li>&nbsp;поддержка студентов</li></ul><div><br></div><div>Способ 1. Автоматический для массовых действий.</div><ol><li>Создаем два векторных слоя (временные или постоянные)</li><li>Рисуем на одном то что в будущем будет подрезать наш слой, а в другом то что останется</li><li>Заходим в vector tools difference</li><li>Выбираем то из чего вычитаем и то что вычитаем, сохраняем результат в новый слой</li></ol><div>Способ 2. Ручной для однократных действий.</div><ol><li>В режиме редактирования слоя в Edit выбираем Add ring</li><li>Начертить внутри полигона то что станет полостью</li><li>Подрезка готова, осталось сохранить изменеия в слое</li></ol><div><br></div><div>-&nbsp; Дозаписать основы (интерфейс, работа с таблицей данных, калькулятор полей,&nbsp; работа с геометрией)</div><div>- Нужно больше теории про системы координат, так как это оказалось самым сложным. Нужна сводная карта в какой точке мира какую систему выбирать</div><div>- нужно опказать непрерывный процесс работы с данными хотя бы на одном-двух примерах (ссылки приведенные сейчас не воспринимаются как источники данных, так как не очень понятно что с ними делать)</div><div>- нужно подробнее рассмотреть обработку данных через таблицу. Что делаем когда не хватает ячеек, как мерджить данные из разных источников</div><div>- нужно подробнее дать калькулятор полей</div><div>- Подгрузка Google чтобы дочертить (привязка растра)</div><div>- Подгрузка Geo Json</div><div>- геопривязка и геокодирование данных&nbsp; (?)</div><div>- заменить видео с неработающим плагином</div><div><br></div><div>По всем трудным вопросам микротуториалы (микроупражнения по формулам)</div><div>Ситуации традиционных сложных файлов (битый csv)</div><div>Поиск данных не по МСК</div><div>FAQ (типовые ошибки)<br><br></div><h1>План действий</h1><ol><li>Договориться об условиях записи с Женей (два предложения от <bc-attachment sgid="BAh7CEkiCGdpZAY6BkVUSSIpZ2lkOi8vYmMzL1BlcnNvbi8yODcyNDUxND9leHBpcmVzX2luBjsAVEkiDHB1cnBvc2UGOwBUSSIPYXR0YWNoYWJsZQY7AFRJIg9leHBpcmVzX2F0BjsAVDA=--20e694250a8fa8e12e09db1c678341b7f1edd17d" content-type="application/vnd.basecamp.mention"><bc-mention class="mentionable-person">
+  <img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="20" class="avatar">
+  Арсений
+</bc-mention></bc-attachment>)</li><li>Найти преподаваетля на перезапись графики (Надя Клевакина отказалась)</li></ol>
+    </div>
+  </section>
+
+
+  <hr class="divider divider--full-width push--top">
+
+
+</article>
+
+    </main>
+  
+
+</body></html>

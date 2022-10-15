@@ -1,0 +1,110 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      .unzipped-overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffc;
+      }
+
+      .unzipped-overlay__inner {
+        max-width: 500px;
+        margin: 2em auto 0;
+      }
+    </style>
+    <link rel="stylesheet" media="all" href="./../../zz_assets/export.css">
+    <script src="./../../zz_assets/export.js"></script>
+    <title>Basecamp Export</title>
+  </head>
+
+  <body>
+    <main>
+        <header class="position-context centered">
+    <div class="global-back">
+      <a href="./../../-DOUBLE_CLICK_TO_VIEW.html">
+        ‹ <span class="decorated">Home</span>
+</a>    </div>
+
+    <div class="metadata"><small>Exported <time datetime="2022-10-03T06:45:50Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Oct 03, 2022 at  6:45 AM</time></small></div>
+
+      <h3 class="project-name">🧢 Техническая команда</h3>
+
+
+      <div class="avatar-group avatar-group--small push_half--top">
+        <a href="./../../-15239380/people/index.html">
+          <img src="./../../zz_assets/images/avatars/28351741.png" title="Софт Культура, Administrator at Soft Culture" alt="Софт Культура, Administrator at Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28355144.png" title="Николай Гончаров, Technical Assistant at Soft Culture" alt="Николай Гончаров, Technical Assistant at Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28670252.png" title="Сеня Волков, Soft Culture" alt="Сеня Волков, Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="34" class="avatar">
+
+          
+</a>      </div>
+
+    <nav class="section-nav push_half--ends">
+      <input type="checkbox" id="more" aria-hidden="true" tabindex="-1" class="section-nav__toggle">
+      <div class="section-nav__inner">
+        <ul class="section-nav__list">
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/messages/message-board-message_board.html">Message Board</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/campfires/campfire-2326842951.html">Campfire</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/to-do-lists/to-dos-todoset.html">To-dos</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/docs-and-files/docs-files-2326842949.html">Docs &amp; Files</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/check-ins/automatic-check-ins-questionnaire.html">Automatic Check-ins</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/schedules/schedule-schedule.html">Schedule</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/email-forwards/email-forwards-2326842960.html">Email Forwards</a></li>
+        </ul>
+        <div class="section-nav__toggle-label">
+          <label for="more" aria-hidden="true" class="section-nav__link">More</label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<article class="recordable message">
+  <header>
+    <small class="metadata">
+      Brief
+
+      by Арсений Афонин
+
+      · <time datetime="2020-03-18T13:21:22Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Mar 18, 2020 at  1:21 PM</time>
+    </small>
+
+    <h1>
+      👀 ТЗ на доработку сайта (Март 2020)
+      <span class="archived-tag">Archived</span>
+    </h1>
+  </header>
+
+  <section>
+    <div class="formatted_content">
+      <h1>Задача 1</h1><div>В ближайшее время мы будем периодически менять названия форматов (т. е. типов) курсов для удобства клиентов. При этом для внутренней автоматизации мы будем использовать числовые идентификаторы типов, а не их названия.<br><br></div><div>Необходимо реализовать интерфейс редактирования типов курсов менеджером сайта или техническим специалистом. С помощью него должна быть возможность изменять названия типа курса (очный, онлайн, видеокурс и др.). Также в нем должно быть виден числовой идентификатор типа курса.<br><br>Насколько мы поняли, сделать такую систему, чтобы числовой идентификатор можно было бы тоже редактировать не получится. Поэтому функционал добавления новых типов и удаление существующих не нужен. Задачу на добавление нового типа и его ID мы будем передавать отдельно.<br><br>Интерфейс будет использоваться редко, поэтому требования к удобству использования минимальные. Также поэтому желательно предусмотреть комментарии или подсказки у полей, чтобы легче было не допустить ошибку.<br><br></div><h1>Задача 2</h1><div>Необходимо реализовать передачу в Airtable числовой идентификатор типа курса, помимо названия типа. Поле для идентификатора <em>type_id</em> (оно уже создано), тип данных — строка.<br><br></div><h1>Задача 3</h1><div>Обновить механизм передачи данных после переименования некоторых полей в Airtable:</div><ol><li><em>id</em> → <em>order_id</em></li><li><em>user_id</em> → <em>site_user_id</em></li><li><em>date</em> → <em>order_date</em></li></ol><h1>Задача 4</h1><div>Изменить числовые идентификаторы текущих типов в соответствии нашими внутренними системами:</div><ul><li>онлайн (1) → 4</li><li>очный (2) → 1</li><li>видеокурс (3) → 8</li><li>воркшоп (4) → 2</li></ul>
+    </div>
+  </section>
+
+
+  <hr class="divider divider--full-width push--top">
+
+  <h4 class="flush--top">Comments &amp; Events</h4>
+
+  <section id="comments" class="thread thread--comments">
+    <div class="thread__entries">
+        <article class="thread-entry thread-entry--event">
+  <img src="./../../zz_assets/images/link.svg" width="17" class="thread-entry__icon">
+  <span class="thread-entry__event">
+    Арсений Афонин <strong>turned on</strong> public link sharing for this message
+    on <time datetime="2020-03-18T18:30:04Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Mar 18, 2020 at  6:30 PM</time>
+  </span>
+</article>
+
+
+    </div>
+  </section>
+
+</article>
+
+    </main>
+  
+
+</body></html>

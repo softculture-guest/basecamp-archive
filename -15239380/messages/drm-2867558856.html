@@ -1,0 +1,128 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      .unzipped-overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffc;
+      }
+
+      .unzipped-overlay__inner {
+        max-width: 500px;
+        margin: 2em auto 0;
+      }
+    </style>
+    <link rel="stylesheet" media="all" href="./../../zz_assets/export.css">
+    <script src="./../../zz_assets/export.js"></script>
+    <title>Basecamp Export</title>
+  </head>
+
+  <body>
+    <main>
+        <header class="position-context centered">
+    <div class="global-back">
+      <a href="./../../-DOUBLE_CLICK_TO_VIEW.html">
+        ‹ <span class="decorated">Home</span>
+</a>    </div>
+
+    <div class="metadata"><small>Exported <time datetime="2022-10-03T06:45:50Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Oct 03, 2022 at  6:45 AM</time></small></div>
+
+      <h3 class="project-name">🧢 Техническая команда</h3>
+
+
+      <div class="avatar-group avatar-group--small push_half--top">
+        <a href="./../../-15239380/people/index.html">
+          <img src="./../../zz_assets/images/avatars/28351741.png" title="Софт Культура, Administrator at Soft Culture" alt="Софт Культура, Administrator at Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28355144.png" title="Николай Гончаров, Technical Assistant at Soft Culture" alt="Николай Гончаров, Technical Assistant at Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28670252.png" title="Сеня Волков, Soft Culture" alt="Сеня Волков, Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="34" class="avatar">
+
+          
+</a>      </div>
+
+    <nav class="section-nav push_half--ends">
+      <input type="checkbox" id="more" aria-hidden="true" tabindex="-1" class="section-nav__toggle">
+      <div class="section-nav__inner">
+        <ul class="section-nav__list">
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/messages/message-board-message_board.html">Message Board</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/campfires/campfire-2326842951.html">Campfire</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/to-do-lists/to-dos-todoset.html">To-dos</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/docs-and-files/docs-files-2326842949.html">Docs &amp; Files</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/check-ins/automatic-check-ins-questionnaire.html">Automatic Check-ins</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/schedules/schedule-schedule.html">Schedule</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15239380/email-forwards/email-forwards-2326842960.html">Email Forwards</a></li>
+        </ul>
+        <div class="section-nav__toggle-label">
+          <label for="more" aria-hidden="true" class="section-nav__link">More</label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<article class="recordable message">
+  <header>
+    <small class="metadata">
+      Note
+
+      by Арсений Афонин
+
+      · <time datetime="2020-07-22T14:05:09Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Jul 22, 2020 at  2:05 PM</time>
+    </small>
+
+    <h1>
+      ✨ DRM-защита видеоплеера
+      
+    </h1>
+  </header>
+
+  <section>
+    <div class="formatted_content">
+      <div>Видеоконтент может быть просто зашифрован двумя способами:</div><ul><li>обычным AES-128 шифрованием</li><li>с помощью DRM-защиты</li></ul><div>Первый вариант менее ненадежный, так как в теории ключ шифрования можно перехватить на стороне клиента. Второй вариант более надежный, однако предполагает использование дорогостоящей коммерческой DRM-системы или нескольких систем, для работы на большинстве девайсов.<br><br>Основное отличие защиты видео с DRM по сравнению с защитой видео обычным шифрованием в том, что в первом сценарии само дешифрование перед воспроизведением берет на себя CDM модуль браузера и он же получает ключи шифрования от сервера лицензий. Взаимодействие плеера с этим модулем происходит с помощью технологии EME.<br><br></div><blockquote>The CDM uses the header metadata to create a license request, which is sent to the remote license server. The license server returns a detailed license containing the content keys. These content keys are then used by the CDM to decrypt the content. The video content is then available to the user for playback. The license request and license information are not accessible to the user, and are handled securely by Encrypted Media Extensions API...<br><br>The CDM is a proprietary software, and its source code and algorithms are completely private. This adds to cryptographic security in the content. [3]</blockquote><div><br>Технология EME предполагает возможность использовать Clear Key — систему менеджмента ключей, не зависящиую от конкретных коммерческих DRM-систем.<br><br></div><blockquote>Using Clear Key system, media can be encrypted with a key and then played back simply by providing that key. [4]</blockquote><div><br>Система Clear Key может использована двумя способами:</div><ul><li>you can explicitly specify the keys in your player configuration</li><li>you can provide a server URL for a server which recognises and will server clearkefs in response to a license request</li></ul><div>В первом случае нет необходимости в сервере лицензий в принципе, однако ключи легко можно посмотреть. Реализацию трансляции видео с EME + Clear Key можно посмотреть вот <a href="https://cpearce.github.io/mse-eme/" target="_blank" rel="noreferrer">здесь</a>. Вот что написано в отношении первого способа в одном из источников:<br><br></div><blockquote>Таким образом, модуль декодирования [CDM] при воспроизведении способен «обходить» и браузер, и операционную систему и отправлять кадры непосредственно через видеокарту на HDMI-выход. Благодаря этому блокируется нелегальная запись видеоконтента на компьютер пользователя.<br>С другой стороны, расширения Encrypted Media Extensions [EME] также предусматривают методы шифрования Clear Key, не использующие модуль CDM. При этом не требуется ни сервер лицензий, ни проприетарное шифрование, так как приложение Java Script получает ключ непосредственно с веб-страницы и отправляет его в браузер, который отвечает за декодирование видео: Голливуд не применяет Clear Key в явном виде. [5]</blockquote><div><br>Пример настройки плеера и сервера лицензий для реализации второго варианта использования Clear Key можно посмотреть вот <a href="https://stackoverflow.com/a/46897097" target="_blank" rel="noreferrer">тут</a>. Мануал по настройке DRM в Shaka Player с Clear Key вот <a href="https://shaka-player-demo.appspot.com/docs/api/tutorial-drm-config.html" target="_blank" rel="noreferrer">здесь</a>.<br><br>В любом случае ClearKey, в отличие от полноценной DRM-системы, использует незашифрованные ключи для расшифровки потока.<br><br>Насколько вариант DRM с использованием Clear Key и сервером лицензий надежнее, чем обычное AES-128 шифрование видео, мы пока не разобрались. Есть <a href="https://stackoverflow.com/a/45103073" target="_blank" rel="noreferrer">мнение</a> о том, что оба варианта как минимум надежны.<br><br></div><h1>Полезные ссылки</h1><ol><li>Как устроена DRM-защита в целом:<br><a href="https://www.streamingmedia.com/Articles/ReadArticle.aspx?ArticleID=132289" target="_blank" rel="noreferrer">https://www.streamingmedia.com/Articles/ReadArticle.aspx?ArticleID=132289</a></li><li>Как работает каждый из компонентов защиты в деталях: <a href="https://habr.com/ru/company/jugru/blog/426727/" target="_blank" rel="noreferrer">https://habr.com/ru/company/jugru/blog/426727/</a></li><li>Сравнение шифрования AES-128 и DRM-защиты:<br><a href="https://www.vdocipher.com/blog/2018/07/aes-128-encryption-video-drm-secure/" target="_blank" rel="noreferrer">https://www.vdocipher.com/blog/2018/07/aes-128-encryption-video-drm-secure/</a></li><li>Общее объяснение технологии EME:<br><a href="https://www.html5rocks.com/en/tutorials/eme/basics/" target="_blank" rel="noreferrer">https://www.html5rocks.com/en/tutorials/eme/basics/</a></li><li>Описание EME на русском:<br><a href="https://ichip.ru/tekhnologii/zashhita-ot-kopirovaniya-v-brauzere-43487" target="_blank" rel="noreferrer">https://ichip.ru/tekhnologii/zashhita-ot-kopirovaniya-v-brauzere-43487</a></li><li>Описание работы технологии DRM:<br><a href="https://bitmovin.com/digital-rights-management-everything-to-know/" target="_blank" rel="noreferrer">https://bitmovin.com/digital-rights-management-everything-to-know/</a></li></ol><div></div>
+    </div>
+  </section>
+
+
+  <hr class="divider divider--full-width push--top">
+
+  <h4 class="flush--top">Comments &amp; Events</h4>
+
+  <section id="comments" class="thread thread--comments">
+    <div class="thread__entries">
+          <article data-recording-id="2867902332" data-creator-id="28724514" data-url="/4415886/buckets/15239380/comments/2867902332" data-readable-identifier="Z2lkOi8vYmMzL1JlY29yZGluZy8yODY3OTAyMzMy" data-parent-id="2867558856" class="thread-entry recording-status-active" id="recording_2867902332"><span class="anchor recordable__anchor" id="__recording_2867902332"></span>
+    <header class="thread-entry__header">
+      <img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="48" class="avatar thread-entry__avatar">
+
+        <strong class="thread-entry__author">Арсений Афонин</strong>
+
+    </header>
+
+    <div class="formatted_content">
+      <div>На эту тему я задал вопрос на StackOverflow:<br><a href="https://stackoverflow.com/questions/63037468/video-decryption-process-when-using-eme-with-clearkey" target="_blank" rel="noreferrer">https://stackoverflow.com/questions/63037468/video-decryption-process-when-using-eme-with-clearkey</a></div>
+    </div>
+
+
+    <div class="thread-entry__metadata metadata">
+      <small>
+        <span class="thread-entry__metadata__time">
+          <time datetime="2020-07-22T15:19:23Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Jul 22, 2020 at  3:19 PM</time>
+        </span>
+
+
+          <span class="thread-entry__metadata__recipients">
+              Notified 3 people
+          </span>
+      </small>
+    </div>
+</article>
+
+    </div>
+  </section>
+
+</article>
+
+    </main>
+  
+
+</body></html>

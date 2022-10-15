@@ -1,0 +1,229 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      .unzipped-overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffc;
+      }
+
+      .unzipped-overlay__inner {
+        max-width: 500px;
+        margin: 2em auto 0;
+      }
+    </style>
+    <link rel="stylesheet" media="all" href="./../../zz_assets/export.css">
+    <script src="./../../zz_assets/export.js"></script>
+    <title>Basecamp Export</title>
+  </head>
+
+  <body>
+    <main>
+        <header class="position-context centered">
+    <div class="global-back">
+      <a href="./../../-DOUBLE_CLICK_TO_VIEW.html">
+        ‹ <span class="decorated">Home</span>
+</a>    </div>
+
+    <div class="metadata"><small>Exported <time datetime="2022-10-03T06:45:27Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Oct 03, 2022 at  6:45 AM</time></small></div>
+
+      <h3 class="project-name">Отчетность 3.2</h3>
+
+
+      <div class="avatar-group avatar-group--small push_half--top">
+        <a href="./../../3-2-19734324/people/index.html">
+          <img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/29793096.png" title="Inna Pyhova, Soft Culture" alt="Inna Pyhova, Soft Culture" width="34" class="avatar">
+
+          
+</a>      </div>
+
+    <nav class="section-nav push_half--ends">
+      <input type="checkbox" id="more" aria-hidden="true" tabindex="-1" class="section-nav__toggle">
+      <div class="section-nav__inner">
+        <ul class="section-nav__list">
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/messages/message-board-message_board.html">Message Board</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/campfires/campfire-3230170059.html">Campfire</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/to-do-lists/to-dos-todoset.html">To-dos</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/docs-and-files/docs-files-3230170058.html">Docs &amp; Files</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/check-ins/automatic-check-ins-questionnaire.html">Automatic Check-ins</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/schedules/schedule-schedule.html">Schedule</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../3-2-19734324/email-forwards/email-forwards-3230170078.html">Email Forwards</a></li>
+        </ul>
+        <div class="section-nav__toggle-label">
+          <label for="more" aria-hidden="true" class="section-nav__link">More</label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<article class="recordable message">
+  <header>
+    <small class="metadata">
+      Note
+
+      by Арсений Афонин
+
+      · <time datetime="2021-04-09T13:37:54Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Apr 09, 2021 at  1:37 PM</time>
+    </small>
+
+    <h1>
+      ✨ Отчетность 3.2. Прогресс
+      
+    </h1>
+  </header>
+
+  <section>
+    <div class="formatted_content">
+      <div>Проект по внедрение управленческой отчетности состоит из следующих этапов:</div><ol><li><del>Разработка новой логики организации учета</del></li><li><del>Определение логики учета всех расходов</del></li><li>Реализация в Adesk (статьи, направления)</li><li><del>Обновление БД обязательств</del></li><li><del>Создание механизма синхронизации доходов</del></li><li>Переучет 2021-го года</li><li>Создание механизма экспорта расходов по картам</li><li>Документация</li><li>Roadmap на переучет 2020-го и автоматические скрипты</li></ol><div><br></div><h1><del>1. Разработка новой логики организации учета</del></h1><div>В новой логике технической организации управленческого учета, финальной точкой сборки всей финансовой информации становится Adesk. В него поступают все операции по банку и по картам, в нем хранятся все метаданные для каждой операции (статьи и пр.).<br><br>При этом единственная цель, которой служит этот сервис — это управленческий учет. Для других целей (менеджмент выплат участникам проекта, менеджмент курсов), используются другие инструменты:</div><ul><li><em>База контрагентов/обязательств</em> — хранит информацию о наших обязательствах по выплатам команде и подрядчикам, с которыми мы работаем. Не хранит и не фиксируют информацию по любым доходам, а также расходам, которые не надо заранее планировать (люди) и которые не привязаны к курсам (расходы на инструменты, расходы оплачиваемые напрямую с р/с). Имеет двустороннюю синхронизацию с Adesk.</li><li><em>База курсов (CRM)</em> — хранит информацию обо всех поступлениях и возвратах по курсам. Имеет одностороннюю синхронизацию данные с Adesk в агрегированном виде.</li></ul><div>Схема функционирования всей этой системы выглядит примерно вот так:</div><div><bc-attachment sgid="BAh7CEkiCGdpZAY6BkVUSSIuZ2lkOi8vYmMzL0F0dGFjaG1lbnQvMjY3NjAwNTQ2P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--816db699b88af600ff8dca80a2b35860aa98c998" content-type="image/jpeg" url="https://preview.3.basecamp.com/4415886/blobs/f6ef864a-9935-11eb-bab0-ecf4bbd72a70/previews/full" href="https://storage.3.basecamp.com/4415886/blobs/f6ef864a-9935-11eb-bab0-ecf4bbd72a70/download/adesk-sync.jpg" filename="adesk-sync.jpg" filesize="322846" width="1210" height="798" previewable="true" presentation="gallery" caption="Взаимодействие всех систем для работы управленческого учета."><div class="attachment attachment--image attachment--jpg attachment--preview attachment--exported">
+    <a class="attachment__link unstyled" target="_blank" href="./../../3-2-19734324/all-files-images-pdfs-spreadsheets-etc/287509342-adesk-sync.jpg">
+      <div class="attachment--frame">
+        <img src="./../../3-2-19734324/all-files-images-pdfs-spreadsheets-etc/287509342-adesk-sync.jpg">
+      </div>
+</a>
+  <span class="attachment__details">
+    <div class="attachment__caption">
+      <a class="unstyled attachment__link" target="_blank" href="./../../3-2-19734324/all-files-images-pdfs-spreadsheets-etc/287509342-adesk-sync.jpg">
+
+          <span class="attachment__name">
+            Взаимодействие всех систем для работы управленческого учета. • <span class="decorated">Download</span>
+          </span>
+</a>    </div>
+  </span>
+</div></bc-attachment></div><h1><del>2. Определение логики учета всех расходов</del></h1><div>На предыдущем этапе мы придумали новый каталог статей и определились с общими <a href="https://www.notion.so/softculture/7f56539bb819453fb98791035940b44c" target="_blank" rel="noreferrer">принципами учета</a>. На этом этапе мы придумали, как разбить все предыдущие расходы по новым статьям. Мы добавили обновление в Notion с правилами по каждому из сотрудников.<br><br>Единственные участники, правил для которых мы пока не придумали, потому что за первый квартал на них еще не было расходов, это Настя Овсянникова и Настя Корнилова. Привила для них будут придуманы позже, при сведении июня 2021-го.</div><div><br></div><h1>3. Реализация в Adesk</h1><div>Сейчас Adesk настроен под нашу компанию и к нему привязаны все счета. Там заведен весь каталог статей и настроены некоторые правила. Для расходов и доходов по картам заведен отдельный карточный счет. Для доходов по курсам заведен отдельный банковский счет.<br><br>Также в Adesk реализованы и направления, соответствующие изменения внесены и в БД обязательств.<br><br>Было решено дублировать в БД информацию о типах расходах, шифрах курсов и периодах для тех расходов, которые изначально должны были быть только в Adesk (расходы на некоторые сервисы, расходы на возвраты долга и др.).<br><br>После реализации стало понятно, что доходы задваиваются в ДДС, так что остались <span style="background-color: rgb(250, 247, 133);">решить, что делать с «Неучитываемыми поступлениями», которые все равно учитываются</span>.<br><br></div><h1><del>4. Обновление в БД обязательств</del></h1><div>В базе данных обязательств сейчас продублирован такой же каталог статей, в него привязаны идентификаторы из Adesk.<br><br>Для базы разработан инструмент двусторонней синхронизации расходов из БД с расходами из Adesk.<br><br></div><h1><del>5. Создание механизма синхронизации доходов</del></h1><div>Сейчас разработаны скрипты API для синхронизации поступлений и выбытий по курсам. Возвраты не учитываются отдельной статьей, потому что на уровне транзакций курсов их очень сложно отличить от переводов сумм между курсами.<br><br></div><h1>6. Переучет 2021-го года</h1><div>В Adesk сведены расходы по счету, начиная, с января 2021-го.<br><br>Расходы по картам с января до конца мая 2021-го сведены в БД и перенесены в Adesk через импорт. Расходы по картам после этого 2021-го будут подтягиваться непосредственно в Adesk, и синхронизироваться с базой через инструмент синхронизации.<br><br>Также сведены доходы за 2021-й год до мая включительно.<br><br>Сейчас <span style="background-color: rgb(250, 247, 133);">надо свести июнь и июль 2021-го</span>, чтобы проект считался законченным.<br><br></div><h1>7. Создание механизма экспорта расходов по картам</h1><div>Расходы по картам сведены до мая 2021-го включительно. Расходы за июнь надо сводить уже в Adesk. Для этого был разработан скрипт создания файла для импорта расходов по карте, потому что инструмент автоматической привязки расходов по карте, который советует Adesk дико сырой. Я не вижу большой проблемы раз в месяц прогонять скриптом выписку и импортировать ее в Adesk.<br><br><span style="background-color: rgb(250, 247, 133);">Скрипт надо куда-то перенести, возможно в dev-tools</span>.<br><br></div><h1>8. Документация</h1><div><span style="background-color: rgb(250, 247, 133);">Надо сделать видеозаписи для Светланы по разбиению расходов в базе данных и их синхронизации с Adesk</span> на примере июня.<br><br>Отдельно нужна <span style="background-color: rgb(250, 247, 133);">документация по созданию выгрузки расходов по карте</span>.<br><br>Правила учета по сотрудникам&nbsp;<span style="background-color: rgb(250, 247, 133);">наверное стоит вынести его в отдельный документ.</span><br><br></div><h1>9. Roadmap</h1><ol><li>Отдельно стоит подумать над тем, как будет работать двусторонняя синхронизация изменений в данных (изменения номинальной даты выплаты, изменение периода) между БД обязательств и Adesk — возможно достаточно будет лишь единожды настроить связь через ID между транзакцией в Adesk и базе, чтобы эти изменения синхронизировались автоматически.</li><li>Скрипты сверки! Чтобы проверять целостность данных при сведении месяца.</li><li>Перенос в базу данных контрагентов с перечнем зарплат (как как менеджмент сделок по юр. лицам на уровне документов у нас теперь ведется в 1С, а не в Airtable).</li><li>План действий на переучет 2020-го года.</li></ol>
+    </div>
+  </section>
+
+
+  <hr class="divider divider--full-width push--top">
+
+  <h4 class="flush--top">Comments &amp; Events</h4>
+
+  <section id="comments" class="thread thread--comments">
+    <div class="thread__entries">
+        <article class="thread-entry thread-entry--event">
+  <img src="./../../zz_assets/images/link.svg" width="17" class="thread-entry__icon">
+  <span class="thread-entry__event">
+    Арсений Афонин <strong>turned on</strong> public link sharing for this message
+    on <time datetime="2021-04-09T13:39:02Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Apr 09, 2021 at  1:39 PM</time>
+  </span>
+</article>
+
+    <article data-recording-id="3686059459" data-creator-id="28724514" data-url="/4415886/buckets/19734324/comments/3686059459" data-readable-identifier="Z2lkOi8vYmMzL1JlY29yZGluZy8zNjg2MDU5NDU5" data-parent-id="3651657551" class="thread-entry recording-status-active" id="recording_3686059459"><span class="anchor recordable__anchor" id="__recording_3686059459"></span>
+    <header class="thread-entry__header">
+      <img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="48" class="avatar thread-entry__avatar">
+
+        <strong class="thread-entry__author">Арсений Афонин</strong>
+
+    </header>
+
+    <div class="formatted_content">
+      <div>Посмотреть возможность не учитывать доход в P&amp;L, но учитывать в кэшфлоу в Adesk.</div>
+    </div>
+
+
+    <div class="thread-entry__metadata metadata">
+      <small>
+        <span class="thread-entry__metadata__time">
+          <time datetime="2021-04-20T15:19:13Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Apr 20, 2021 at  3:19 PM</time>
+        </span>
+
+
+          <span class="thread-entry__metadata__recipients">
+              Notified 1 person
+          </span>
+      </small>
+    </div>
+</article>
+    <article data-recording-id="3748134061" data-creator-id="28724514" data-url="/4415886/buckets/19734324/comments/3748134061" data-readable-identifier="Z2lkOi8vYmMzL1JlY29yZGluZy8zNzQ4MTM0MDYx" data-parent-id="3651657551" class="thread-entry recording-status-active" id="recording_3748134061"><span class="anchor recordable__anchor" id="__recording_3748134061"></span>
+    <header class="thread-entry__header">
+      <img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="48" class="avatar thread-entry__avatar">
+
+        <strong class="thread-entry__author">Арсений Афонин</strong>
+
+    </header>
+
+    <div class="formatted_content">
+      <div>Выгрузку в Сбере надо формировать на начало следующего месяца, а не последнее число текущего, так как период считается не включая последний день.</div>
+    </div>
+
+
+    <div class="thread-entry__metadata metadata">
+      <small>
+        <span class="thread-entry__metadata__time">
+          <time datetime="2021-05-08T11:25:48Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">May 08, 2021 at 11:25 AM</time>
+        </span>
+
+
+          <span class="thread-entry__metadata__recipients">
+              Notified 1 person
+          </span>
+      </small>
+    </div>
+</article>
+    <article data-recording-id="3748672784" data-creator-id="28724514" data-url="/4415886/buckets/19734324/comments/3748672784" data-readable-identifier="Z2lkOi8vYmMzL1JlY29yZGluZy8zNzQ4NjcyNzg0" data-parent-id="3651657551" class="thread-entry recording-status-active" id="recording_3748672784"><span class="anchor recordable__anchor" id="__recording_3748672784"></span>
+    <header class="thread-entry__header">
+      <img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="48" class="avatar thread-entry__avatar">
+
+        <strong class="thread-entry__author">Арсений Афонин</strong>
+
+    </header>
+
+    <div class="formatted_content">
+      <div>Расходы под вопросом:</div><ul><li>комиссии за трансферы средств с ООО на карту (<em>Банковские услуги и РКО</em> — как-то не оч. подходит, возможно надо переименовать категорию, а для <em>Прочих расходов на функционирование</em> — это слишком большой расход)</li><li>консультации внешних специалистов (например, Полины Кожановой насчет отчетности) — кажется статья <em>Образование</em> не очень подходит для этой деятельности</li><li>социологи или аналитики на разовые задачи (исследование или анализ) — сейчас для них вообще нет категории</li><li>разработка GA для маркетинга — вроде как это не клиентское или презентационное IT-решение (а значит это <em>Разработка командных IT-решений</em>), но с другой стороны оно явно имеет отношение маркетинговой части производственного цикла, так что возможно наше деление на категории разработки не конца корректно.</li><li>покупка курсов и книг для разработки курсов — иногда мы покупаем продукты других компаний, чтобы посмотреть как они сделаны, а также книги и материалы по теме. Странно писать их в статью <em>Дополнительные — Образование</em>, и не связывать с разработкой продукта.</li><li>непонятно куда должна идти разработка всякий внутренних процессов, которая в итоге выражается в изменениях документации или ТЗ на разработку IT-решений, или каким-то еще деятельностям. Напрямую такими вещами занимается Сеня Волков и тимлиды, но последних мы не делим, а вот Сеню надо делить. Это явно этап разработки инфраструктуры (РИ), но не очень подходит под категорию <em>Разработка внутренних IT-решений</em>. При этом это фактически постоянные задачи, так как внутренние проекты мы делаем постоянно.</li></ul><div>Поскольку мы определяем категории не по отношению к проекту (внутри/снаружи), а по задачам, то всегда будут работы по таким задачам, для которых не будет категорий. Это связано с тем, что бизнес-процессы никогда не бывают постоянными. Поэтому кажется, что надо просто выделить категорию для непостоянных задач, которые еще не стали частью бизнес-процессов, например, для задач аналитики или консалтинга по каким-то темам. Когда эти задачи станут частью процесса и расходы на них вырастут, но можно будет выносить их в отдельную категорию.<br><br>Вопрос лишь в том, как определить, на каком этапе производственного цикла лежат эти задачи (или они вообще <em>дополнительные</em>). Например, тот же продуктовый анализ можно воспринимать как помощь в разработке продукта, а можно воспринимать как задачу, связанную с текущим функционированием проекта.</div>
+    </div>
+
+
+    <div class="thread-entry__metadata metadata">
+      <small>
+        <span class="thread-entry__metadata__time">
+          <time datetime="2021-05-09T09:37:21Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">May 09, 2021 at  9:37 AM</time>
+        </span>
+
+
+          <span class="thread-entry__metadata__recipients">
+              Notified 1 person
+          </span>
+      </small>
+    </div>
+</article>
+    <article data-recording-id="3781179496" data-creator-id="28724514" data-url="/4415886/buckets/19734324/comments/3781179496" data-readable-identifier="Z2lkOi8vYmMzL1JlY29yZGluZy8zNzgxMTc5NDk2" data-parent-id="3651657551" class="thread-entry recording-status-active" id="recording_3781179496"><span class="anchor recordable__anchor" id="__recording_3781179496"></span>
+    <header class="thread-entry__header">
+      <img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="48" class="avatar thread-entry__avatar">
+
+        <strong class="thread-entry__author">Арсений Афонин</strong>
+
+    </header>
+
+    <div class="formatted_content">
+      <div>Вообще есть конечно один конфликт, заключающийся в том, что работа тимлида в принципе связана с постоянным обновлением бизнес-процессов (организационная деятельность по Щедровицкому), а не только в руководстве и управлении. При этом совершенно ясно, что эта деятельность находится на совершенно другом этапе производственного цикла, нежели контроль над выстроенными процессами.<br><br>И вот тут возникает вопрос: как можно делить расходы на разработку чего-либо и реализацию, если основной расход на тимлида у нас как раз неделим. При этом мы хотели выделять любую разработку в отдельную часть цикла, потому что эффект от нее максимально отложен и сложно измерим, а значит скорее всего решение об увеличении расходов на нее должно производиться иначе, нежели увеличение расходов на масштабирование постоянных бизнес-процессов.</div>
+    </div>
+
+
+    <div class="thread-entry__metadata metadata">
+      <small>
+        <span class="thread-entry__metadata__time">
+          <time datetime="2021-05-19T11:21:59Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">May 19, 2021 at 11:21 AM</time>
+        </span>
+
+
+          <span class="thread-entry__metadata__recipients">
+              Notified 1 person
+          </span>
+      </small>
+    </div>
+</article>
+
+    </div>
+  </section>
+
+</article>
+
+    </main>
+  
+
+</body></html>

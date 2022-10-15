@@ -1,0 +1,95 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      .unzipped-overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffc;
+      }
+
+      .unzipped-overlay__inner {
+        max-width: 500px;
+        margin: 2em auto 0;
+      }
+    </style>
+    <link rel="stylesheet" media="all" href="./../../zz_assets/export.css">
+    <script src="./../../zz_assets/export.js"></script>
+    <title>Basecamp Export</title>
+  </head>
+
+  <body>
+    <main>
+        <header class="position-context centered">
+    <div class="global-back">
+      <a href="./../../-DOUBLE_CLICK_TO_VIEW.html">
+        ‹ <span class="decorated">Home</span>
+</a>    </div>
+
+    <div class="metadata"><small>Exported <time datetime="2022-10-03T06:45:43Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Oct 03, 2022 at  6:45 AM</time></small></div>
+
+      <h3 class="project-name">👩🏻‍✈️ Финансовый отдел</h3>
+
+
+      <div class="avatar-group avatar-group--small push_half--top">
+        <a href="./../../-15447106/people/index.html">
+          <img src="./../../zz_assets/images/avatars/28351741.png" title="Софт Культура, Administrator at Soft Culture" alt="Софт Культура, Administrator at Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28391168.png" title="Алена Шляховая, Главред at Soft Culture" alt="Алена Шляховая, Главред at Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28724392.png" title="Олег Сазонов, Soft Culture" alt="Олег Сазонов, Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/28724514.png" title="Арсений Афонин, Soft Culture" alt="Арсений Афонин, Soft Culture" width="34" class="avatar"><img src="./../../zz_assets/images/avatars/29793096.png" title="Inna Pyhova, Soft Culture" alt="Inna Pyhova, Soft Culture" width="34" class="avatar">
+
+          
+</a>      </div>
+
+    <nav class="section-nav push_half--ends">
+      <input type="checkbox" id="more" aria-hidden="true" tabindex="-1" class="section-nav__toggle">
+      <div class="section-nav__inner">
+        <ul class="section-nav__list">
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15447106/messages/message-board-message_board.html">Message Board</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15447106/campfires/campfire-2361004715.html">Campfire</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15447106/to-do-lists/to-dos-todoset.html">To-dos</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15447106/docs-and-files/docs-files-2361004713.html">Docs &amp; Files</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15447106/check-ins/automatic-check-ins-questionnaire.html">Automatic Check-ins</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15447106/schedules/schedule-schedule.html">Schedule</a></li>
+              <li class="section-nav__item"><a class="section-nav__link" href="./../../-15447106/email-forwards/email-forwards-2361004727.html">Email Forwards</a></li>
+        </ul>
+        <div class="section-nav__toggle-label">
+          <label for="more" aria-hidden="true" class="section-nav__link">More</label>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<article class="recordable message">
+  <header>
+    <small class="metadata">
+      Idea
+
+      by Софт Культура
+
+      · <time datetime="2020-01-10T19:52:00Z" data-local="time" data-format="%b %d, %Y at %l:%M %p">Jan 10, 2020 at  7:52 PM</time>
+    </small>
+
+    <h1>
+      ✨ Новая логика учета доходов
+      
+    </h1>
+  </header>
+
+  <section>
+    <div class="formatted_content">
+      <div>Пора менять логику учета доходов в БД финансов. Главная цель этого проекта — возможность смотреть настоящий отчет Cashflow в один клик. Второстепенная цель — усовершенствовать P&amp;L.<br><br>Сейчас проект уже на половину реализован. Однако есть концептуальные вопросы, до сих пор не закрытые.<br><br>Первый из таких вопросов — какой датой в P&amp;L учитывать различные типы событий. С точки зрения P&amp;L это должна быть дата окончания сделки — то есть дата окончания курса. Именно в этот момент «поступления» становятся «доходом». Однако эта логика плохо перекладывается на видеокурсы, а также плохо работает с другими показателями, такими как оборот за месяц (который мы считаем по запущенным в месяце курсам, то есть по датам старта).<br><br>Наиболее корректным с точки зрения нашего процесса было использование следующих параметров курса в качестве номинальной даты дохода за месяц:</div><ul><li>для очных и онлайн курсов:<ul><li>дата старта для доходов за все месяца до месяца старта курса</li><li>дата начала месяца для доходов последующих после старта месяцев (доплаты при частичной оплате) <em>(или же тоже датой старта)</em></li></ul></li><li>для видеокурсов и акций:<ul><li>дата старта для доходов за все месяца до месяца старта курса</li><li>дата начала месяца для доходов последующих после старта месяцев</li></ul></li><li>для корпоративных курсов:<ul><li>дата старта для доходов за все месяца до месяца старта курса</li><li>дата начала месяца для доходов последующих после старта месяцев (доплаты при частичной оплате) <em>(или же тоже датой старта)</em></li></ul></li></ul><div>Наибольшую проблему создают частичные оплаты курса. В случае, если для очных и онлайн-курсах их считать датой старта курса, то доход за месяц будет изменяться постфактум уже по прошествии месяца, при доплатах на курсе. Это не проблема для динамически изменяющегося P&amp;L, однако это проблема при расчете гонораров, связанных с % с дохода с курсов в месяц. Решением может быть % от Cashflow, так как эти данные более стабильны.</div>
+    </div>
+  </section>
+
+
+  <hr class="divider divider--full-width push--top">
+
+
+</article>
+
+    </main>
+  
+
+</body></html>
